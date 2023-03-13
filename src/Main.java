@@ -83,31 +83,4 @@ public class Main {
         }
         return null;
     }
-
-
-
-
-    public static Macaco createMonkey(int id, int parId, int imparId, List<Integer> cocos){
-        return new Macaco(id, parId, imparId, cocos);
-    }
-
-
-
-
-    public void criaJogo(){
-        criaMacacos();
-    }
-
-
-    public void criaMacacos(){
-        var macaco0 = new Macaco(0, new ArrayList<>(Arrays.asList(178, 84, 1, 111, 159, 22, 54, 132, 201, 51, 44)));
-        var macaco1 = new Macaco(1, new ArrayList<>(Arrays.asList(80, 82, 10, 83, 98, 31, 56, 84, 53)));
-        var macaco2 = new Macaco(2, new ArrayList<>(Arrays.asList(65, 194, 35, 132, 191, 202, 62)));
-        var macaco3 = new Macaco(3, new ArrayList<>(Arrays.asList(121, 10, 162)));
-        var macaco4 = new Macaco(4, new ArrayList<>(Arrays.asList(16, 110, 125, 113, 35)));
-        var macaco5 = new Macaco(5, new ArrayList<>(Arrays.asList(120, 25, 20, 134, 166, 100, 157, 159)));
-
-//        macaco0.setParImpar();
-
-    }
 }
