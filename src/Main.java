@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
 
         try {
-            var reader = new BufferedReader(new FileReader(new File("teste2.txt")));
+            var reader = new BufferedReader(new FileReader(new File("0050macacos.txt")));
             var line = reader.readLine(); //first line
             var numeroRodadas = Integer.valueOf(Arrays.stream(line.split(" ")).toList().get(1));
 
@@ -43,7 +43,7 @@ public class Main {
             }
             System.out.println("");
 
-            for (int i = 0; i<4; i++){
+            for (int i = 0; i<numeroRodadas; i++){
                 for (Macaco m :
                         monkeysList) {
                     var par = findById(m.getParId()); //cuidar com null
@@ -54,10 +54,10 @@ public class Main {
                             newCocos) {
                         //se for par
                         if (coco % 2 == 0) {
-                            m.remove(coco);
+//                            m.remove(coco);
                             m.givePar(coco);
                         } else {
-                            m.remove(coco);
+//                            m.remove(coco);
                             m.giveImpar(coco);
                         }
                     }

@@ -93,15 +93,13 @@ public class Macaco {
         this.imparId = imparId;
     }
 
-    public void remove(Integer coco) {
-        cocos.remove(coco);
-    }
-
     public void givePar(Integer coco) {
+        cocos.remove(coco);
         par.getCocos().add(coco);
     }
 
     public void giveImpar(Integer coco) {
+        cocos.remove(coco);
         impar.getCocos().add(coco);
     }
 }
