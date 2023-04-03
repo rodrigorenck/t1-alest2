@@ -1,35 +1,35 @@
 import java.util.List;
 
-public class Macaco {
+public class Monkey {
 
     private int id;
-    private Macaco par;
-    private Macaco impar;
+    private Monkey par;
+    private Monkey impar;
     private List<Integer> cocos;
     private int parId;
     private int imparId;
 
 
-    public Macaco(int id, Macaco par, Macaco impar, List<Integer> cocos) {
+    public Monkey(int id, Monkey par, Monkey impar, List<Integer> cocos) {
         this.id = id;
         this.par = par;
         this.impar = impar;
         this.cocos = cocos;
     }
 
-    public Macaco(int id, List<Integer> cocos){
+    public Monkey(int id, List<Integer> cocos){
         this.id = id;
         this.cocos = cocos;
     }
 
-    public Macaco(int id, int parId, int imparId, List<Integer> cocos) {
+    public Monkey(int id, int parId, int imparId, List<Integer> cocos) {
         this.id = id;
         this.parId = parId;
         this.imparId = imparId;
         this.cocos = cocos;
     }
 
-    public void setParImpar(Macaco par, Macaco impar){
+    public void setParImpar(Monkey par, Monkey impar){
         this.par = par;
         this.impar = impar;
     }
@@ -53,19 +53,19 @@ public class Macaco {
         this.id = id;
     }
 
-    public Macaco getPar() {
+    public Monkey getPar() {
         return par;
     }
 
-    public void setPar(Macaco par) {
+    public void setPar(Monkey par) {
         this.par = par;
     }
 
-    public Macaco getImpar() {
+    public Monkey getImpar() {
         return impar;
     }
 
-    public void setImpar(Macaco impar) {
+    public void setImpar(Monkey impar) {
         this.impar = impar;
     }
 
@@ -101,5 +101,9 @@ public class Macaco {
     public void giveImpar(Integer coco) {
         cocos.remove(coco);
         impar.getCocos().add(coco);
+    }
+
+    public int numberOfCoconuts(){
+        return cocos.size();
     }
 }
