@@ -1,32 +1,21 @@
-import java.util.List;
-
 public class Monkey {
 
-    private int id;
+    private final int id;
     private Monkey par;
     private Monkey impar;
-    private List<Integer> cocos;
-    private int parId;
-    private int imparId;
+    private final int parId;
+    private final int imparId;
+    private int quantCocoPar;
+    private int quantCocoImpar;
+    private int quantCoco;
 
-
-    public Monkey(int id, Monkey par, Monkey impar, List<Integer> cocos) {
-        this.id = id;
-        this.par = par;
-        this.impar = impar;
-        this.cocos = cocos;
-    }
-
-    public Monkey(int id, List<Integer> cocos){
-        this.id = id;
-        this.cocos = cocos;
-    }
-
-    public Monkey(int id, int parId, int imparId, List<Integer> cocos) {
+    public Monkey(int id, int parId, int imparId, int quantCocosPar, int quantCocosImpar) {
         this.id = id;
         this.parId = parId;
         this.imparId = imparId;
-        this.cocos = cocos;
+        this.quantCocoPar = quantCocosPar;
+        this.quantCocoImpar = quantCocosImpar;
+        this.quantCoco = this.quantCocoImpar + this.quantCocoPar;
     }
 
     public void setParImpar(Monkey par, Monkey impar){
@@ -39,18 +28,14 @@ public class Monkey {
     public String toString() {
         return "Macaco{" +
                 "id=" + id +
-                ", par=" + parId +
-                ", impar=" + imparId +
-                ", cocos=" + cocos +
+                ", parId=" + parId +
+                ", imparId=" + imparId +
+                ", quantCocos=" + quantCoco +
                 '}';
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public Monkey getPar() {
@@ -69,41 +54,35 @@ public class Monkey {
         this.impar = impar;
     }
 
-    public List<Integer> getCocos() {
-        return cocos;
-    }
-
-    public void setCocos(List<Integer> cocos) {
-        this.cocos = cocos;
-    }
-
     public int getParId() {
         return parId;
-    }
-
-    public void setParId(int parId) {
-        this.parId = parId;
     }
 
     public int getImparId() {
         return imparId;
     }
 
-    public void setImparId(int imparId) {
-        this.imparId = imparId;
+    /**
+     * Remove o numero de cocos par da sua quantidade de cocos total e transfere esse valor para o seu macaco par
+     */
+    public void givePar() {
+        par.quantCocoPar+= this.quantCocoPar;
+        par.quantCoco += this.quantCocoPar;
+        this.quantCoco = this.quantCoco - quantCocoPar;
+        this.quantCocoPar = 0;
     }
 
-    public void givePar(Integer coco) {
-        cocos.remove(coco);
-        par.getCocos().add(coco);
+    /**
+     * Remove o numero de cocos impar da sua quantidade de cocos total e transfere esse valor para o seu macaco impar
+     */
+    public void giveImpar() {
+        impar.quantCocoImpar+= this.quantCocoImpar;
+        impar.quantCoco += this.quantCocoImpar;
+        this.quantCoco = this.quantCoco - quantCocoImpar;
+        this.quantCocoImpar = 0;
     }
 
-    public void giveImpar(Integer coco) {
-        cocos.remove(coco);
-        impar.getCocos().add(coco);
-    }
-
-    public int numberOfCoconuts(){
-        return cocos.size();
+    public int numberOfCocos(){
+        return quantCoco;
     }
 }
